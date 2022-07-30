@@ -1,6 +1,27 @@
-redis:
-  host: 127.0.0.1
-  port: 6379
-
 server:
   port: 8888
+
+spring:
+  main:
+    allow-circular-references: true
+  application:
+    name: springboot-redis-postgresql
+  redis:
+    host: localhost
+    port: 6379
+  cache:
+    type: redis
+    redis:
+      cache-null-value: false
+  datasource:
+    url: jdbc:postgresql://localhost:5432/springboot-redis-db
+    username: postgres
+    password: 5071
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    hibernate:
+      ddl-auto: update
+    show-sql: true

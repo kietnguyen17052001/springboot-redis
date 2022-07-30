@@ -1,15 +1,16 @@
 package com.learn.springbootredis.entity;
 
-import lombok.Data;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.redis.core.RedisHash;
 
+import lombok.Data;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Data
-@RedisHash("customer")
-    public class Customer implements Serializable {
+@Entity
+@Table(name = "tbl_customer")
+public class Customer implements Serializable {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
     private int age;
